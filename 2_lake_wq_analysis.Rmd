@@ -28,7 +28,7 @@ library(lubridate) #For dealing with date and time
 
 
 ### First download and then specifically grab the locus (or site lat longs)
-```{r data-read}
+```{r data-read, warning = FALSE, message = FALSE}
 #Lagos download script
 #lagosne_get(dest_folder = LAGOSNE:::lagos_path(),overwrite=T)
 
@@ -53,7 +53,7 @@ nutr <- lagos$epi_nutr
 ### Subset columns nutr to only keep key info that we want
 
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 clarity_only <- nutr %>%
   select(lagoslakeid,sampledate,chla,doc,secchi) %>%
   mutate(sampledate = as.character(sampledate) %>% ymd(.))
